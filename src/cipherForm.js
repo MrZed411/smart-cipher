@@ -1,7 +1,7 @@
 import React from 'react';
 import ClipLoader from 'react-spinners/ClipLoader';
 
-const WordsNinja = new (require('wordsninja'))();
+const WordsNinja = new (require('./wordsninja/index'))();
 const bruteForceCaesar = require('./scripts/bruteForceCaesar');
 const bruteForceMultiplicative = require('./scripts/bruteForceMultiplicative');
 const bruteForceAffine = require('./scripts/bruteForceAffine');
