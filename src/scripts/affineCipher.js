@@ -9,7 +9,7 @@ function affine(str, multi, shiftNum) {
 
     if (shiftNum < 0) {
         shiftNum = Math.abs(((Math.floor(shiftNum / 26) * 26) - shiftNum)) % 26
-    } else if (shiftNum == 0) {
+    } else if (shiftNum === 0) {
         return str;
     } else {
         shiftNum = shiftNum % 26;
@@ -24,10 +24,10 @@ function affine(str, multi, shiftNum) {
     }
 
     return shift(str, (c) => {
-        if (c == ' ') return c;
+        if (c === ' ') return c;
         c = c.toUpperCase();
         let letterCode = ((((c.charCodeAt(0) - 64) - shiftNum) * decipherMulti) % 26);
-        if (letterCode == 0) letterCode = 26;
+        if (letterCode === 0) letterCode = 26;
         return String.fromCharCode(letterCode + 64);
     });
 }
