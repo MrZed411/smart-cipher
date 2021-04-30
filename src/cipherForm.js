@@ -28,16 +28,23 @@ class CipherForm extends React.Component {
 
     handleSubmit(event) {
         this.setState({loading: true});
-        this.setState({casear: bruteForceCaesar(this.state.inputValue.replace(/ /g, ""), WordsNinja)});
-        this.setState({multiplicative: bruteForceMultiplicative(this.state.inputValue.replace(/ /g, ""), WordsNinja)});
-        this.setState({affine: bruteForceAffine(this.state.inputValue.replace(/ /g, ""), WordsNinja)});
-        this.setState({loading: false});
+        setTimeout(() => {
+            this.setState({casear: bruteForceCaesar(this.state.inputValue.replace(/ /g, ""), WordsNinja)});
+            this.setState({multiplicative: bruteForceMultiplicative(this.state.inputValue.replace(/ /g, ""), WordsNinja)});
+            this.setState({affine: bruteForceAffine(this.state.inputValue.replace(/ /g, ""), WordsNinja)});
+            this.setState({loading: false});
+        }, 100);
     }
 
     render() {
         
         return (
             <div style={{width: "75%"}}>
+                {this.state.loading === true &&
+                    <div>
+                        <ClipLoader color="white" css="position: absolute; width: 300px; height: 300px; z-index: 15; top: 50%; left: 50%; margin: -150px 0 0 -150px;"/>
+                    </div>
+                }
                 <form>
                     <label>Input:</label>
                     <br/>
@@ -45,11 +52,6 @@ class CipherForm extends React.Component {
                 </form>
                 <br/>
                 <button onClick={this.handleSubmit}>Submit</button>
-                {this.state.loading === true &&
-                    <div>
-                        <ClipLoader />
-                    </div>
-                }
                 {this.state.casear.length !== 0 &&
                     <div>
                         <br />

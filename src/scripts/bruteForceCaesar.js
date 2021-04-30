@@ -1,14 +1,13 @@
-const multiplicative = require('./multiplicativeCipher');
+const caesar = require('./caesarCipher');
 
-const valid = [3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25];
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 function bruteForce(str, WordsNinja) {
     const shifts = [];
 
-    for (let x of valid) {
+    for (let x = 1; x < 26; x++) {
         const val = {};
-        const shifted = multiplicative(str, x);
+        const shifted = caesar(str, x);
         const split = WordsNinja.splitSentence(shifted);
 
         let total = 0;
@@ -17,10 +16,10 @@ function bruteForce(str, WordsNinja) {
         }
         if (total / split.length < 2.75) continue;
 
-        const shiftedKey = multiplicative(alphabet, x);
+        const shiftedKey = caesar(alphabet, x);
         const joined = split.join(' ');
 
-        val.multiVal = x;
+        val.shiftVal = x;
         val.shifted = shifted;
         val.split = split;
         val.joined = joined;
