@@ -32,4 +32,4 @@ function affine(str, multi, shiftNum) {
     });
 }
 
-export {affine as affine};
+export {affine};

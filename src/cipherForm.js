@@ -27,8 +27,10 @@ class CipherForm extends React.Component {
     }
 
     handleSubmit(event) {
+        this.setState({inputValue: this.state.inputValue.trim()});
         this.setState({loading: true});
         setTimeout(() => {
+            if(this.state.inputValue === '') return this.setState({loading: false});
             this.setState({casear: bruteForceCaesar(this.state.inputValue.replace(/[^A-Za-z]/g, ""), WordsNinja)});
             this.setState({multiplicative: bruteForceMultiplicative(this.state.inputValue.replace(/[^A-Za-z]/g, ""), WordsNinja)});
             this.setState({affine: bruteForceAffine(this.state.inputValue.replace(/[^A-Za-z]/g, ""), WordsNinja)});

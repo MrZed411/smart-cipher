@@ -1,5 +1,3 @@
-'use strict'
-const path = require('path');
 const splitRegex = new RegExp("[^a-zA-Z0-9']+", "g");
 let maxWordLen = 0;
 let wordCost = {};
@@ -126246,15 +126244,14 @@ class WordsNinja {
         let out = [];
         let i = s.length;
         while (i > 0) {
-            let c = best_match(i)[0];
             let k = best_match(i)[1];
             //if (c == cost[i])
             //    console.log("Alert: " + c);
 
             let newToken = true;
-            if (s.slice(i - k, i) != "'") {
+            if (s.slice(i - k, i) !== "'") {
                 if (out.length > 0) {
-                    if (out[-1] == "'s" || (Number.isInteger(s[i - 1]) && Number.isInteger(out[-1][0]))) {
+                    if (out[-1] === "'s" || (Number.isInteger(s[i - 1]) && Number.isInteger(out[-1][0]))) {
                         out[-1] = s.slice(i - k, i) + out[-1];
                         newToken = false;
                     }
@@ -126285,7 +126282,7 @@ class WordsNinja {
 
         let splitStringsArray = [];
         arrayOfStrings.forEach(tempString => {
-            if (tempString != '') {
+            if (tempString !== '') {
                 let splitWords = tempString.split(/(?=[A-Z])/).join(" ");
                 splitStringsArray.push(splitWords);
             }
@@ -126305,4 +126302,4 @@ class WordsNinja {
     }
 }
 
-export { WordsNinja as WordsNinja };
+export { WordsNinja };

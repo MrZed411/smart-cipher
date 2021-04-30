@@ -24,4 +24,4 @@ function multiplicative(str, multi) {
     });
 }
 
-export { multiplicative as multiplicative };
+export { multiplicative };

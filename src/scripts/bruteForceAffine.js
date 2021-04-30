@@ -36,4 +36,4 @@ function bruteForce(str, WordsNinja) {
     return shifts;
 }
 
-export { bruteForce as bruteForce };
+export { bruteForce };

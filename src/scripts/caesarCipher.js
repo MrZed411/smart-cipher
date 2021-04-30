@@ -18,4 +18,4 @@ function caesar(str, shiftNum) {
     });
 }
 
-export { caesar as caesar };
+export { caesar };
