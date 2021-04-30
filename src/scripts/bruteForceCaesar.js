@@ -1,4 +1,4 @@
-const caesar = require('./caesarCipher');
+const caesar = require('./caesarCipher').caesar;
 
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
@@ -32,4 +32,4 @@ function bruteForce(str, WordsNinja) {
     return shifts;
 }
 
-module.exports = bruteForce;
+export { bruteForce as bruteForce };

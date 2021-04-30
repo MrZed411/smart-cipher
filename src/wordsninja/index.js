@@ -126305,4 +126305,4 @@ class WordsNinja {
     }
 }
 
-module.exports = WordsNinja;
+export { WordsNinja as WordsNinja };

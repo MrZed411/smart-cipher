@@ -1,4 +1,4 @@
-const shift = require('./shift');
+const shift = require('./shift').shift;
 
 function caesar(str, shiftNum) {
     if (shiftNum < 0) {
@@ -18,4 +18,4 @@ function caesar(str, shiftNum) {
     });
 }
 
-module.exports = caesar;
+export { caesar as caesar };

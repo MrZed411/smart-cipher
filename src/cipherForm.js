@@ -1,10 +1,10 @@
 import React from 'react';
 import ClipLoader from 'react-spinners/ClipLoader';
 
-const WordsNinja = new (require('./wordsninja/index'))();
-const bruteForceCaesar = require('./scripts/bruteForceCaesar');
-const bruteForceMultiplicative = require('./scripts/bruteForceMultiplicative');
-const bruteForceAffine = require('./scripts/bruteForceAffine');
+const WordsNinja = new (require('./wordsninja/index')).WordsNinja();
+const bruteForceCaesar = require('./scripts/bruteForceCaesar').bruteForce;
+const bruteForceMultiplicative = require('./scripts/bruteForceMultiplicative').bruteForce;
+const bruteForceAffine = require('./scripts/bruteForceAffine').bruteForce;
 
 class CipherForm extends React.Component {
     constructor(props) {

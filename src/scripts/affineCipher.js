@@ -1,4 +1,4 @@
-const shift = require('./shift');
+const shift = require('./shift').shift;
 
 const valid = [3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25];
 
@@ -32,4 +32,4 @@ function affine(str, multi, shiftNum) {
     });
 }
 
-module.exports = affine;
+export {affine as affine};

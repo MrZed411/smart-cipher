@@ -8,4 +8,4 @@ function shift(str, shiftFunc) {
     return out;
 }
 
-module.exports = shift;
+export { shift as shift };

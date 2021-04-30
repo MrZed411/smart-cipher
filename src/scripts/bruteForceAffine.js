@@ -1,4 +1,4 @@
-const affine = require('./affineCipher');
+const affine = require('./affineCipher').affine;
 
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const valid = [3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25];
@@ -36,4 +36,4 @@ function bruteForce(str, WordsNinja) {
     return shifts;
 }
 
-module.exports = bruteForce;
+export { bruteForce as bruteForce };
