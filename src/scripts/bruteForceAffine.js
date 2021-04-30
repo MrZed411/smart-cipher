@@ -1,5 +1,6 @@
 const affine = require('./affineCipher');
 
+const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const valid = [3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25];
 
 function bruteForce(str, WordsNinja) {
@@ -17,6 +18,7 @@ function bruteForce(str, WordsNinja) {
             }
             if (total / split.length < 2.75) continue;
 
+            const shiftedKey = affine(alphabet, x, y);
             const joined = split.join(' ');
 
             val.multiVal = x;
@@ -25,6 +27,7 @@ function bruteForce(str, WordsNinja) {
             val.split = split;
             val.joined = joined;
             val.averageLength = total / split.length;
+            val.shiftedKey = shiftedKey;
 
             shifts.push(val);
         }

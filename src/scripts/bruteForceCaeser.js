@@ -1,5 +1,7 @@
 const caesar = require('./caesarCipher');
 
+const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
 function bruteForce(str, WordsNinja) {
     const shifts = [];
 
@@ -14,6 +16,7 @@ function bruteForce(str, WordsNinja) {
         }
         if (total / split.length < 2.75) continue;
 
+        const shiftedKey = caesar(alphabet, x);
         const joined = split.join(' ');
 
         val.shiftVal = x;
@@ -21,6 +24,7 @@ function bruteForce(str, WordsNinja) {
         val.split = split;
         val.joined = joined;
         val.averageLength = total / split.length;
+        val.shiftedKey = shiftedKey;
 
         shifts.push(val);
     }

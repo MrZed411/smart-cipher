@@ -1,6 +1,7 @@
 const multiplicative = require('./multiplicativeCipher');
 
 const valid = [3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25];
+const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 function bruteForce(str, WordsNinja) {
     const shifts = [];
@@ -16,6 +17,7 @@ function bruteForce(str, WordsNinja) {
         }
         if (total / split.length < 2.75) continue;
 
+        const shiftedKey = multiplicative(alphabet, x);
         const joined = split.join(' ');
 
         val.multiVal = x;
@@ -23,6 +25,7 @@ function bruteForce(str, WordsNinja) {
         val.split = split;
         val.joined = joined;
         val.averageLength = total / split.length;
+        val.shiftedKey = shiftedKey;
 
         shifts.push(val);
     }
